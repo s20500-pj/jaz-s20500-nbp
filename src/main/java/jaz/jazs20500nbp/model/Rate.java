@@ -1,33 +1,31 @@
 package jaz.jazs20500nbp.model;
 
-import java.util.Date;
-
-public class Rate {
-    public String No;
-    public Date EffectiveDate;
-    public Date Mid;
+public class Rate{
+    public String no;
+    public String effectiveDate;
+    public double mid;
 
     public String getNo() {
-        return No;
+        return no;
     }
 
     public void setNo(String no) {
-        No = no;
+        this.no = no;
     }
 
-    public Date getEffectiveDate() {
-        return EffectiveDate;
+    public String getEffectiveDate() {
+        return effectiveDate;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
-        EffectiveDate = effectiveDate;
+    public void setEffectiveDate(String effectiveDate) {
+        this.effectiveDate = effectiveDate;
     }
 
-    public Date getMid() {
-        return Mid;
+    public double getMid() {
+        return mid;
     }
 
-    public void setMid(Date mid) {
-        Mid = mid;
+    public void setMid(double mid) {
+        this.mid = mid;
     }
 }
