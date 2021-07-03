@@ -1,12 +1,18 @@
 package jaz.jazs20500nbp.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
 public class Root{
-    public String table;
-    public String currency;
-    public String code;
-    public List<Rate> rates;
+    @ApiModelProperty(name = "table", dataType = "String")
+    private String table;
+    @ApiModelProperty(name = "currency", dataType = "String",example = "zloty")
+    private String currency;
+    @ApiModelProperty(name = "code", dataType = "String",example = "pln")
+    private String code;
+    @ApiModelProperty(name = "rates", dataType = "List<Rate>")
+    private List<Rate> rates;
 
     public String getTable() {
         return table;

@@ -1,9 +1,14 @@
 package jaz.jazs20500nbp.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class Rate{
-    public String no;
-    public String effectiveDate;
-    public double mid;
+    @ApiModelProperty(name = "no", dataType = "String")
+    private String no;
+    @ApiModelProperty(name = "effectiveDate", dataType = "String")
+    private String effectiveDate;
+    @ApiModelProperty(name = "mid", dataType = "double", example = "5.5")
+    private double mid;
 
     public String getNo() {
         return no;
