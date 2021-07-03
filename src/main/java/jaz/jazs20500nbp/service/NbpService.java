@@ -11,15 +11,13 @@ import java.util.List;
 @Service
 public class NbpService {
     private RestTemplate restTemplate;
-    private final NbpRepository nbpRepository;
 
-    public NbpService(RestTemplate restTemplate, NbpRepository nbpRepository) {
+    public NbpService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.nbpRepository = nbpRepository;
     }
 
     public Root getAvgList(String currency, String startData, String endData){
-        String url = String.format("https://api.nbp.pl/api/exchangerates/rates/a/%d/%s/%s/?format=json",currency,startData,endData);
+        String url = String.format("https://api.nbp.pl/api/exchangerates/rates/a/%s/%s/%s/?format=json",currency,startData,endData);
         return restTemplate.getForObject(url,Root.class);
     }
 
@@ -33,7 +31,6 @@ public class NbpService {
         double avg = sum/rates.size();
         return avg;
     }
-
 
 
 }
