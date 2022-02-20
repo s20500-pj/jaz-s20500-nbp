@@ -21,8 +21,8 @@ public class NbpController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "Given currency was not found"),
-            @ApiResponse(code = 504, message = "Something wronng with server"),
-            @ApiResponse(code = 402, message = "You dont have acces"),
+            @ApiResponse(code = 504, message = "Something wrong with server"),
+            @ApiResponse(code = 402, message = "You dont have access"),
             @ApiResponse(code = 403, message = "It is not for you"),
     }
     )
@@ -32,6 +32,16 @@ public class NbpController {
                                                  @ApiParam(value = "start date of range", example = "2001-09-11")@PathVariable String startDate,
                                                  @ApiParam(value = "end date of range", example = "2001-09-12") @PathVariable String endDate) {
         return ResponseEntity.ok(nbpService.getAvgCurrency(currency, startDate, endDate));
+    }
+    @GetMapping("/nbp/all")
+    public ResponseEntity<StringBuilder> getAll(){
+        nbpService.getAll();
+        return ResponseEntity.ok(nbpService.getAll());
+    }
+
+    @GetMapping("/nbp/{currency}/{amount}")
+    public ResponseEntity<Double> getExchangeAmount(@PathVariable String currency,@PathVariable Double amount){
+        return ResponseEntity.ok(nbpService.countExchangeAmount(currency,amount));
     }
 
 }

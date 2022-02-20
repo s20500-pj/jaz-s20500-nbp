@@ -25,6 +25,13 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Sorry, something went wrong, " + e.getLocalizedMessage());
     }
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler
+    public ResponseEntity<String> handleNotFoundException(ClassNotFoundException e) {
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Sorry, we could not find what you are looking for, 404 " + e.getLocalizedMessage());
+    }
 
 
 
